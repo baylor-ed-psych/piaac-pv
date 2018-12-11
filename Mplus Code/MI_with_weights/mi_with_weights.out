@@ -1,0 +1,498 @@
+Mplus VERSION 8
+MUTHEN & MUTHEN
+06/15/2018   4:35 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:      PIAAC PV Project - US Conference. this file analyzes the full
+              set of Plausible Values through the multiple imputation
+              framework while controlling for sampling and replicate
+              weights.
+
+  DATA:
+              FILE is C:\Users\noah_padgett1\Desktop\PIAAC_PV\Mplus Code\
+              MI_with_weights\Numlist.dat;
+              TYPE = imputation;
+
+  VARIABLE:
+          Names are CNTRYID GENDER_R  PVNUM VEMETHOD   VEMETHODN  VEFAYFAC
+              VENREPS   VARSTRAT  VARUNIT   	SPFWT0	SPFWT1	SPFWT2	SPFWT3	SPFWT4	
+              SPFWT5	SPFWT6	SPFWT7	SPFWT8	SPFWT9	SPFWT10	SPFWT11	
+              SPFWT12	SPFWT13	SPFWT14	SPFWT15	SPFWT16	SPFWT17	SPFWT18	
+              SPFWT19	SPFWT20	SPFWT21	SPFWT22	SPFWT23	SPFWT24	SPFWT25	SPFWT26	
+              SPFWT27	SPFWT28	SPFWT29	SPFWT30	SPFWT31	SPFWT32	SPFWT33	
+              SPFWT34	SPFWT35	SPFWT36	SPFWT37	SPFWT38	SPFWT39	SPFWT40	
+              SPFWT41	SPFWT42	SPFWT43	SPFWT44	SPFWT45	SPFWT46	SPFWT47	SPFWT48	
+              SPFWT49	SPFWT50	SPFWT51	SPFWT52	SPFWT53	SPFWT54	SPFWT55	
+              SPFWT56	SPFWT57	SPFWT58	SPFWT59	SPFWT60	SPFWT61	SPFWT62	
+              SPFWT63	SPFWT64	SPFWT65	SPFWT66	SPFWT67	SPFWT68	SPFWT69	SPFWT70	
+              SPFWT71	SPFWT72	SPFWT73	SPFWT74	SPFWT75	SPFWT76	SPFWT77	
+              SPFWT78	SPFWT79	SPFWT80	Female AvgNUM;	
+
+              USEVARIABLES ARE   PVNUM Female ;
+
+              Missing = ALL (-9999, 9999, 9);
+
+              WEIGHT = SPFWT0;
+              REPWEIGHT = SPFWT1-SPFWT80;
+
+  ANALYSIS:
+              TYPE IS  COMPLEX Missing;
+              REPSE = JACKKNIFE2;
+
+  Model:
+              PVNUM   on Female ;
+
+
+  OUTPUT:     SAMPSTAT RESIDUAL STANDARDIZED CINTERVAL TECH4 ; !MODINDICES
+
+
+
+*** WARNING in ANALYSIS command
+  Starting with Version 5, TYPE=MISSING is the default for all analyses.
+  To obtain listwise deletion, use LISTWISE=ON in the DATA command.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+PIAAC PV Project - US Conference. this file analyzes the full
+set of Plausible Values through the multiple imputation
+framework while controlling for sampling and replicate
+weights.
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Average number of observations                                8488
+
+Number of replications
+    Requested                                                   10
+    Completed                                                   10
+
+Number of dependent variables                                    1
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   PVNUM
+
+Observed independent variables
+   FEMALE
+
+Variables with special functions
+
+  Weight variable       SPFWT0
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  Multiple data files from
+    C:\Users\noah_padgett1\Desktop\PIAAC_PV\Mplus Code\ MI_with_weights\Numlist.
+
+Input data format  FREE
+
+
+SUMMARY OF DATA FOR THE FIRST DATA SET
+
+     Number of missing data patterns             1
+
+
+SUMMARY OF MISSING DATA PATTERNS FOR THE FIRST DATA SET
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1
+ PVNUM     x
+ FEMALE    x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency
+          1        8488
+
+
+COVARIANCE COVERAGE OF DATA FOR THE FIRST DATA SET
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM          1.000
+ FEMALE         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+NOTE:  These are average results over 10 data sets.
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              PVNUM         FEMALE
+              ________      ________
+              255.304         0.513
+
+
+           Covariances
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM       3134.382
+ FEMALE        -3.899         0.250
+
+
+           Correlations
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM          1.000
+ FEMALE        -0.139         1.000
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+          H0 Value                      -46125.346
+          H1 Value                      -46125.346
+
+*   The loglikelihood cannot be used directly for chi-square testing with
+    imputed data.
+
+Information Criteria
+
+          Akaike (AIC)                   92256.693
+          Bayesian (BIC)                 92277.832
+          Sample-Size Adjusted BIC       92268.299
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Chi-square is not available with replicate weights.
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed   Rate of
+                    Estimate       S.E.  Est./S.E.    P-Value    Missing
+
+ PVNUM    ON
+    FEMALE           -15.604      1.280    -12.193      0.000      0.114
+
+ Intercepts
+    PVNUM            263.301      1.177    223.648      0.000      0.165
+
+ Residual Variances
+    PVNUM           3073.505     86.880     35.377      0.000      0.278
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed   Rate of
+                    Estimate       S.E.  Est./S.E.    P-Value    Missing
+
+ PVNUM    ON
+    FEMALE            -0.139      0.011    -12.467      0.000      0.109
+
+ Intercepts
+    PVNUM              4.703      0.069     67.831      0.000      0.231
+
+ Residual Variances
+    PVNUM              0.981      0.003    314.167      0.000      0.112
+
+
+STDY Standardization
+
+                                                    Two-Tailed   Rate of
+                    Estimate       S.E.  Est./S.E.    P-Value    Missing
+
+ PVNUM    ON
+    FEMALE            -0.279      0.022    -12.464      0.000      0.109
+
+ Intercepts
+    PVNUM              4.703      0.069     67.831      0.000      0.231
+
+ Residual Variances
+    PVNUM              0.981      0.003    314.167      0.000      0.112
+
+
+STD Standardization
+
+                                                    Two-Tailed   Rate of
+                    Estimate       S.E.  Est./S.E.    P-Value    Missing
+
+ PVNUM    ON
+    FEMALE           -15.604      1.280    -12.193      0.000      0.114
+
+ Intercepts
+    PVNUM            263.301      1.177    223.648      0.000      0.165
+
+ Residual Variances
+    PVNUM           3073.505     86.880     35.377      0.000      0.278
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Rate of
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Missing
+
+    PVNUM              0.019      0.003      6.224      0.000      0.111
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ PVNUM    ON
+    FEMALE         -18.900     -18.112     -17.709     -15.604     -13.499     -13.096     -12.308
+
+ Intercepts
+    PVNUM          260.269     260.994     261.365     263.301     265.238     265.609     266.334
+
+ Residual Variances
+    PVNUM         2849.720    2903.221    2930.588    3073.505    3216.423    3243.790    3297.290
+
+
+CONFIDENCE INTERVALS OF STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ PVNUM    ON
+    FEMALE          -0.168      -0.161      -0.158      -0.139      -0.121      -0.117      -0.111
+
+ Intercepts
+    PVNUM            4.525       4.567       4.589       4.703       4.817       4.839       4.882
+
+ Residual Variances
+    PVNUM            0.973       0.974       0.975       0.981       0.986       0.987       0.989
+
+
+STDY Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ PVNUM    ON
+    FEMALE          -0.336      -0.323      -0.316      -0.279      -0.242      -0.235      -0.221
+
+ Intercepts
+    PVNUM            4.525       4.567       4.589       4.703       4.817       4.839       4.882
+
+ Residual Variances
+    PVNUM            0.973       0.974       0.975       0.981       0.986       0.987       0.989
+
+
+STD Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ PVNUM    ON
+    FEMALE         -18.900     -18.112     -17.709     -15.604     -13.499     -13.096     -12.308
+
+ Intercepts
+    PVNUM          260.269     260.994     261.365     263.301     265.238     265.609     266.334
+
+ Residual Variances
+    PVNUM         2849.720    2903.221    2930.588    3073.505    3216.423    3243.790    3297.290
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Means
+              PVNUM         FEMALE
+              ________      ________
+              255.304         0.513
+
+
+           Residuals for Means
+              PVNUM         FEMALE
+              ________      ________
+                0.000         0.000
+
+
+           Model Estimated Covariances
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM       3134.337
+ FEMALE        -3.899         0.250
+
+
+           Residuals for Covariances
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM          0.045
+ FEMALE         0.000         0.000
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              PVNUM         FEMALE
+              ________      ________
+                  0             0
+
+
+           LAMBDA
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM              0             0
+ FEMALE             0             0
+
+
+           THETA
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM              0
+ FEMALE             0             0
+
+
+           ALPHA
+              PVNUM         FEMALE
+              ________      ________
+                  1             0
+
+
+           BETA
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM              0             2
+ FEMALE             0             0
+
+
+           PSI
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM              3
+ FEMALE             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              PVNUM         FEMALE
+              ________      ________
+                0.000         0.000
+
+
+           LAMBDA
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM          1.000         0.000
+ FEMALE         0.000         1.000
+
+
+           THETA
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM          0.000
+ FEMALE         0.000         0.000
+
+
+           ALPHA
+              PVNUM         FEMALE
+              ________      ________
+              255.326         0.513
+
+
+           BETA
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM          0.000         0.000
+ FEMALE         0.000         0.000
+
+
+           PSI
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM       1594.125
+ FEMALE         0.000         0.250
+
+
+TECHNICAL 4 OUTPUT
+
+NOTE:  These are average results over 10 data sets.
+
+
+     ESTIMATES DERIVED FROM THE MODEL
+
+
+           Estimated Means for the Latent Variables
+              PVNUM         FEMALE
+              ________      ________
+              255.304         0.513
+
+
+           Estimated Covariance Matrix for the Latent Variables
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM       3134.374
+ FEMALE        -3.899         0.250
+
+
+           Estimated Correlation Matrix for the Latent Variables
+              PVNUM         FEMALE
+              ________      ________
+ PVNUM          1.000
+ FEMALE        -0.139         1.000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\noah_padgett1\desktop\piaac_pv\mplus code\mi_with_weights\mi_with_weights.dgm
+
+     Beginning Time:  16:35:44
+        Ending Time:  16:36:04
+       Elapsed Time:  00:00:20
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2017 Muthen & Muthen

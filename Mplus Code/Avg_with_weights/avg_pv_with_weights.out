@@ -1,0 +1,420 @@
+Mplus VERSION 8
+MUTHEN & MUTHEN
+06/15/2018   4:40 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:      PIAAC PV Project - US Conference. this file analyzes the aerage
+              of the 10 plausible values WITH using all sampling and replicate
+              weights.
+
+  DATA:
+              FILE is C:\Users\noah_padgett1\Desktop\PIAAC_PV\Mplus Code\
+              Avg_with_weights\PIAAC_household_reduced_2018_06_15_mplus.dat;
+              !TYPE = imputation;
+
+  VARIABLE:
+          Names are CNTRYID GENDER_R  PVNUM1 PVNUM2 PVNUM3 PVNUM4 PVNUM5
+              PVNUM6 PVNUM7 PVNUM8 PVNUM9 PVNUM10 VEMETHOD   VEMETHODN  VEFAYFAC
+              VENREPS   VARSTRAT  VARUNIT   	SPFWT0	SPFWT1	SPFWT2	SPFWT3	SPFWT4	
+              SPFWT5	SPFWT6	SPFWT7	SPFWT8	SPFWT9	SPFWT10	SPFWT11	
+              SPFWT12	SPFWT13	SPFWT14	SPFWT15	SPFWT16	SPFWT17	SPFWT18	
+              SPFWT19	SPFWT20	SPFWT21	SPFWT22	SPFWT23	SPFWT24	SPFWT25	SPFWT26	
+              SPFWT27	SPFWT28	SPFWT29	SPFWT30	SPFWT31	SPFWT32	SPFWT33	
+              SPFWT34	SPFWT35	SPFWT36	SPFWT37	SPFWT38	SPFWT39	SPFWT40	
+              SPFWT41	SPFWT42	SPFWT43	SPFWT44	SPFWT45	SPFWT46	SPFWT47	SPFWT48	
+              SPFWT49	SPFWT50	SPFWT51	SPFWT52	SPFWT53	SPFWT54	SPFWT55	
+              SPFWT56	SPFWT57	SPFWT58	SPFWT59	SPFWT60	SPFWT61	SPFWT62	
+              SPFWT63	SPFWT64	SPFWT65	SPFWT66	SPFWT67	SPFWT68	SPFWT69	SPFWT70	
+              SPFWT71	SPFWT72	SPFWT73	SPFWT74	SPFWT75	SPFWT76	SPFWT77	
+              SPFWT78	SPFWT79	SPFWT80	Female AvgNUM;	
+
+              USEVARIABLES ARE   AvgNUM Female ;
+
+              Missing = ALL (-9999, 9999, 9);
+
+              WEIGHT = SPFWT0;
+              REPWEIGHT = SPFWT1-SPFWT80;
+
+  ANALYSIS:
+              TYPE IS  COMPLEX ;
+              REPSE = JACKKNIFE2;
+
+  Model:
+              AvgNUM   on Female ;
+
+
+  OUTPUT:     SAMPSTAT RESIDUAL STANDARDIZED CINTERVAL TECH4 MODINDICES;
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  182
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+PIAAC PV Project - US Conference. this file analyzes the aerage
+of the 10 plausible values WITH using all sampling and replicate
+weights.
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        8488
+
+Number of dependent variables                                    1
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   AVGNUM
+
+Observed independent variables
+   FEMALE
+
+Variables with special functions
+
+  Weight variable       SPFWT0
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  C:\Users\noah_padgett1\Desktop\PIAAC_PV\Mplus Code\ Avg_with_weights\PIAAC_hou
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              AVGNUM        FEMALE
+              ________      ________
+ AVGNUM         1.000
+ FEMALE         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              AVGNUM        FEMALE
+              ________      ________
+              255.304         0.513
+
+
+           Covariances
+              AVGNUM        FEMALE
+              ________      ________
+ AVGNUM      2833.961
+ FEMALE        -3.899         0.250
+
+
+           Correlations
+              AVGNUM        FEMALE
+              ________      ________
+ AVGNUM         1.000
+ FEMALE        -0.147         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -51847.103
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     AVGNUM              255.304      -0.285      68.852    0.01%     205.069    238.200    252.089
+            8488.000    2833.961      -0.236     403.764    0.01%     265.911    296.805
+     FEMALE                0.513      -0.050       0.000   46.16%       0.000      0.000      1.000
+            8488.000       0.250      -1.997       1.000   53.84%       1.000      1.000
+
+
+     WARNING:  JACKKNIFE2 STANDARD ERRORS ASSUME THAT EACH STRATUM CONTAINS TWO CLUSTERS.
+     STANDARD ERRORS WILL BE INCORRECT IF THIS IS NOT THE CASE.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+          H0 Value                      -45689.243
+          H1 Value                      -45689.243
+
+Information Criteria
+
+          Akaike (AIC)                   91384.487
+          Bayesian (BIC)                 91405.626
+          Sample-Size Adjusted BIC       91396.092
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Chi-square is not available with replicate weights.
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ AVGNUM   ON
+    FEMALE           -15.604      1.126    -13.860      0.000
+
+ Intercepts
+    AVGNUM           263.301      1.016    259.221      0.000
+
+ Residual Variances
+    AVGNUM          2773.127     68.470     40.501      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ AVGNUM   ON
+    FEMALE            -0.147      0.010    -14.178      0.000
+
+ Intercepts
+    AVGNUM             4.946      0.065     75.800      0.000
+
+ Residual Variances
+    AVGNUM             0.979      0.003    323.521      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ AVGNUM   ON
+    FEMALE            -0.293      0.021    -14.173      0.000
+
+ Intercepts
+    AVGNUM             4.946      0.065     75.800      0.000
+
+ Residual Variances
+    AVGNUM             0.979      0.003    323.521      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ AVGNUM   ON
+    FEMALE           -15.604      1.126    -13.860      0.000
+
+ Intercepts
+    AVGNUM           263.301      1.016    259.221      0.000
+
+ Residual Variances
+    AVGNUM          2773.127     68.470     40.501      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    AVGNUM             0.021      0.003      7.097      0.000
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ AVGNUM   ON
+    FEMALE         -18.504     -17.810     -17.456     -15.604     -13.752     -13.397     -12.704
+
+ Intercepts
+    AVGNUM         260.685     261.310     261.630     263.301     264.972     265.292     265.918
+
+ Residual Variances
+    AVGNUM        2596.762    2638.926    2660.494    2773.127    2885.760    2907.328    2949.492
+
+
+CONFIDENCE INTERVALS OF STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ AVGNUM   ON
+    FEMALE          -0.173      -0.167      -0.164      -0.147      -0.130      -0.126      -0.120
+
+ Intercepts
+    AVGNUM           4.778       4.818       4.839       4.946       5.053       5.074       5.114
+
+ Residual Variances
+    AVGNUM           0.971       0.973       0.974       0.979       0.984       0.984       0.986
+
+
+STDY Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ AVGNUM   ON
+    FEMALE          -0.346      -0.334      -0.327      -0.293      -0.259      -0.253      -0.240
+
+ Intercepts
+    AVGNUM           4.778       4.818       4.839       4.946       5.053       5.074       5.114
+
+ Residual Variances
+    AVGNUM           0.971       0.973       0.974       0.979       0.984       0.984       0.986
+
+
+STD Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ AVGNUM   ON
+    FEMALE         -18.504     -17.810     -17.456     -15.604     -13.752     -13.397     -12.704
+
+ Intercepts
+    AVGNUM         260.685     261.310     261.630     263.301     264.972     265.292     265.918
+
+ Residual Variances
+    AVGNUM        2596.762    2638.926    2660.494    2773.127    2885.760    2907.328    2949.492
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              AVGNUM        FEMALE
+              ________      ________
+              255.304         0.513
+
+
+           Residuals for Means/Intercepts/Thresholds
+              AVGNUM        FEMALE
+              ________      ________
+                0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              AVGNUM        FEMALE
+              ________      ________
+ AVGNUM      2833.959
+ FEMALE        -3.899         0.250
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              AVGNUM        FEMALE
+              ________      ________
+ AVGNUM         0.002
+ FEMALE         0.000         0.000
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates may not be included.  To include these, request
+MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+TECHNICAL 4 OUTPUT
+
+
+     ESTIMATES DERIVED FROM THE MODEL
+
+
+           ESTIMATED MEANS FOR THE LATENT VARIABLES
+              AVGNUM        FEMALE
+              ________      ________
+              255.304         0.513
+
+
+           ESTIMATED COVARIANCE MATRIX FOR THE LATENT VARIABLES
+              AVGNUM        FEMALE
+              ________      ________
+ AVGNUM      2833.959
+ FEMALE        -3.899         0.250
+
+
+           ESTIMATED CORRELATION MATRIX FOR THE LATENT VARIABLES
+              AVGNUM        FEMALE
+              ________      ________
+ AVGNUM         1.000
+ FEMALE        -0.147         1.000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\noah_padgett1\desktop\piaac_pv\mplus code\avg_with_weights\avg_pv_with_weights.dgm
+
+     Beginning Time:  16:40:37
+        Ending Time:  16:40:39
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2017 Muthen & Muthen
